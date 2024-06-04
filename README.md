@@ -35,7 +35,7 @@ The subscribe function in `init.sh` starts up 10 subscribers, one from each of t
 
 # reproduce the issue
 
-Stop and start nats server until no messages appear after startup, this will take no more than 10 tries in my experience. 
+Stop and start nats server until no messages appear after startup, this will take approx. 10 tries in my experience but can take more attempts. 
 
 Once it's in this state, stopping and restarting the publisher or subscribers has no effect.
 
