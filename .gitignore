@@ -1,0 +1,5 @@
+nats/
+nkeys/
+nats-server
+nsc.json
+resolver.conf
