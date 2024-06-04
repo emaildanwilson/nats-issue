@@ -22,7 +22,7 @@ for a in $(seq $MAX_ACCOUNTS); do
 
     # workaround
     # nsc add export --account "${account}" --subject "internal.*" --service || true
-    # nsc add import --account "${account}" --src-account main --remote-subject "internal.${MAX_ACCOUNTS}" --service || true
+    # nsc add import --account "${account}" --src-account main --remote-subject "internal.${a}" --service || true
         
     nsc add user --account secondary-$a --name subscriber \
         --allow-sub "city.>" \
