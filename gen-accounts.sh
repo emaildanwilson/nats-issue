@@ -16,8 +16,13 @@ nsc add user --account main --name debug --allow-sub '>'
 for a in $(seq $MAX_ACCOUNTS); do
     nsc add account secondary-$a
 
+    # comment this out to use the workaround
     nsc add export --account "${account}" --subject "internal.*" || true
-    nsc add import --account main --src-account secondary-$a --remote-subject "internal.${MAX_ACCOUNTS}" || true
+    nsc add import --account main --src-account secondary-$a --remote-subject "internal.${a}" || true
+
+    # workaround
+    # nsc add export --account "${account}" --subject "internal.*" --service || true
+    # nsc add import --account "${account}" --src-account main --remote-subject "internal.${MAX_ACCOUNTS}" --service || true
         
     nsc add user --account secondary-$a --name subscriber \
         --allow-sub "city.>" \

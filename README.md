@@ -27,7 +27,7 @@ The publisher connects using the publisher user of the main account and publishe
 
 ### start subscribers
 
-The subscribe function in `init.sh` starts up 10 subscribers, one from each of the 10 accounts created.
+The subscribe and unsubscribe functions are defined in `init.sh`.  `subscribe` starts up 10 subscribers, one from each of the 10 accounts created using the `nats` cli. `unsubscribe` terminates any running `nats` subscription processes.
 
 1. source ./init.sh
 1. subscribe
@@ -41,6 +41,12 @@ Once it's in this state, stopping and restarting the publisher or subscribers ha
 
 You can subscribe using the debug user creds in the main account to see messages are still being published.
 
-You can subscribe using teh debug user creds in the secondary-1 account to see that no messages are being received by this subaccount.
+You can subscribe using the debug user creds in the secondary-1 account to see that no messages are being received by this subaccount.
 
 The only way to correct the issue is to restart the nats server. Once that is complete messages will start flowing again unless you happen to hit the issue again.
+
+# cleanup
+
+1. unsubscribe
+1. stop the nats-server
+1. stop the publisher
