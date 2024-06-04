@@ -1,7 +1,7 @@
 # this directory
 export NSC_HOME="$(dirname $(realpath "${BASH_SOURCE[0]}"))"
 export NKEYS_PATH="$NSC_HOME/nkeys"
-export MAX_ACCOUNTS=10
+export MAX_ACCOUNTS=100
 
 
 subscribe() {

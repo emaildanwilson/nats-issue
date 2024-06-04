@@ -17,12 +17,12 @@ for a in $(seq $MAX_ACCOUNTS); do
     nsc add account secondary-$a
 
     # comment this out to use the workaround
-    nsc add export --account "${account}" --subject "internal.*" || true
+    nsc add export --account "secondary-$a" --subject "internal.*" || true
     nsc add import --account main --src-account secondary-$a --remote-subject "internal.${a}" || true
 
-    # workaround
-    # nsc add export --account "${account}" --subject "internal.*" --service || true
-    # nsc add import --account "${account}" --src-account main --remote-subject "internal.${a}" --service || true
+    # workaround; still testing
+    # nsc add export --account "secondary-$a" --subject "internal.*" --service || true
+    # nsc add import --account "secondary-$a" --src-account main --remote-subject "internal.${a}" --service || true
         
     nsc add user --account secondary-$a --name subscriber \
         --allow-sub "city.>" \
